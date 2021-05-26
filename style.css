@@ -1,0 +1,51 @@
+/* Général */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap");
+
+body {
+	font-family: "Raleway", "Sans serif";
+	margin: 0;
+}
+h1 {
+    font-family: "Raleway", "Sans serif";
+    font-size: 1.8rem;
+}
+h2 {
+    font-family: "Raleway", "Sans serif";
+    font-size: 1.2rem;
+}
+a {
+	color: inherit;
+	text-decoration: none;
+}
+a:hover {
+    color: inherit;
+}
+
+/* Header */
+.header__Nav__Link {
+	font-weight: 500;
+	border-top: 3px transparent solid;
+	border-bottom: 3px transparent solid;
+}
+.header__Nav__Link:hover {
+	color: #8F5BFE;
+    border-top: 3px #8F5BFE solid;
+}
+
+/* Main */
+.main__Choice {
+    background-color: #F0F0F0;
+}
+
+/* Footer */
+.footer__Desc {
+    font-size: 0.7rem;
+}
+.footer__Column__Link {
+    border-bottom: 3px transparent solid;
+    border-top: 3px transparent solid;
+}
+.footer__Column__Link:hover {
+    border-bottom: 3px #8F5BFE solid;
+    color: #8F5BFE;
+}
