@@ -36,10 +36,63 @@
     <!-- Header -->
 
     <!-- Main -->
+    <div class="container-fluid banner">
+      <h1 class="text-center pt-5 px-2">
+        Orinoco Teddies - Ours en peluche certifié 100% fait main !
+      </h1>
+      <h2 class="text-center p-4">
+        Choisissez vite le votre !
+      </h2>
+    </div>
+    <main class="container-lg container-fluid-sm p-5 main__Cart">
+      <section id="cart">
+        <h1 class="text-center" id="cart__title">
+          Votre panier est vide.
+        </h1>
+        <button id="cart__homeButton" class="m-4 btn btn-dark"><a href="index.html">Retour aux produits</a></button>
+        <div id="cart__list">
+          <button id="cart__button" class="mx-4 mb-4 btn btn-dark none">Vider le panier</button>
+        </div>
+        <span id="cart__total"></span>
+        <div id="form" class="none">
+          <h2 id="form__title">Formulaire de commande</h2>
+          <form id="form__contact">
+            <div class="row mb-3">
+              <div class="col-sm">
+                <label for="firstName">Prénom</label>
+                <input id="firstName" type="text" class="form-control" placeholder="Prénom" required>
+              </div>
+              <div class="col-sm">
+                <label for="lastName">Nom</label>
+                <input id="lastName" type="text" class="form-control" placeholder="Nom" required>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-sm">
+                <label for="address">Adresse</label>
+                <input id="address" type="text" class="form-control" placeholder="Adresse" required>
+              </div>
+              <div class="col-sm">
+                <label for="city">Ville</label>
+                <input id="city" type="text" class="form-control" placeholder="Ville" required>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col">
+                <label for="email">Email</label>
+                <input id="email" type="email" class="form-control" placeholder="Email" required>
+              </div>
+            </div>
+            <p id="invalid__message"></p>
+            <button id="form__button" type="button" class="m-4 btn btn-dark">Envoyer</button>
+          </form>
+        </div>
+      </section>
+    </main>
     <!-- Main -->
 
     <!-- Footer -->
-    <footer class="container-fluid">
+    <footer class="container-fluid  mt-5">
       <div class="row">
         <div class="col-lg-6 col-sm-12 py-4 my-2 text-center">
           <a href="#" class="pb-2 footer__Column__Link">

@@ -33,8 +33,12 @@ a:hover {
 }
 
 /* Main */
-.main__Choice {
+.main__Choice, .main__Cart {
     background-color: #F0F0F0;
+    border-radius: 50px;
+}
+.btn-dark {
+    background-color: #8F5BFE;
 }
 
 /* Footer */
