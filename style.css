@@ -22,6 +22,9 @@ a:hover {
 }
 
 /* Header */
+header {
+    border-bottom: 5px #8F5BFE solid;
+}
 .header__Nav__Link {
 	font-weight: 500;
 	border-top: 3px transparent solid;
@@ -37,11 +40,27 @@ a:hover {
     background-color: #F0F0F0;
     border-radius: 50px;
 }
+.main__Choice {
+    border: 20px #F0F0F0 solid;
+}
 .btn-dark {
     background-color: #8F5BFE;
 }
+#cards {
+    border-radius: 20px;
+    border: 10px white solid;
+    height: 500px;
+    background-color: white;
+}
+#cards:hover {
+    transform: scale(1.05);
+    transition-duration: 0.2s;
+}
 
 /* Footer */
+footer {
+    border-top: 5px #8F5BFE solid;
+}
 .footer__Desc {
     font-size: 0.7rem;
 }
