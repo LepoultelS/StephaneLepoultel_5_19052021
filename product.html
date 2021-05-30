@@ -36,6 +36,31 @@
     <!-- Header -->
 
     <!-- Main -->
+    <main class="row">
+      <section class="container row" id="product">
+        <img class="col-5 mx-auto pt-5" id="product__image" src="#" alt="appareil photo">
+        <div class="col-8 mx-auto" id="product__infos">
+          <h1 class="text-center pt-4" id="product__name">Produit</h1>
+          <p class="text-center pt-4" id="product__price"></p>
+          <p class="col-5 mx-auto text-center pt-4" id="product__description"></p>
+          <div class="row">
+            <select class="col-9 mx-auto p-3 my-2" id="product__options" required>
+              <option class="" value="" disabled selected>Sélectionner une couleur</option>
+            </select>
+            <button id="product__button" class="col-4 mx-auto my-2 p-2 btn btn-dark">
+              <span>Ajouter au panier</span>
+              <i id="product__icon" class="fas fa-shopping-bag"></i>
+            </button>
+            <button class="col-4 mx-auto my-2 p-2 btn btn-dark">
+              <a href="cart.html">
+                <span>Voir le panier</span>
+              </a>
+            </button>
+          </div>
+          <p id="product__confirm" class="pt-2 text-center"></p>
+        </div>
+      </section>
+    </main>
     <!-- Main -->
 
     <!-- Footer -->
@@ -64,5 +89,6 @@
       integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" 
       crossorigin="anonymous">
     </script>
+    <script type="module" src="./js/page-product.js"></script>
 </body>
 </html>
