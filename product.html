@@ -21,16 +21,12 @@
             <img src="./images/logo.png" alt="Logo du site">
           </a>
         </div>
-        <div class="col-lg-1 col-sm-12 mx-2 py-4 text-center header__Nav__Link">
-          <a href="index.html">
-            Accueil
-          </a>
-        </div>
-        <div class="col-lg-1 col-sm-12 mx-2 py-4 text-center header__Nav__Link">
-          <a href="cart.html">
-            Panier
-          </a>
-        </div>
+        <a href="index.html" class="col-lg-1 col-sm-12 mx-2 py-4 text-center header__Nav__Link">
+          Accueil
+        </a>
+        <a href="cart.html" class="col-lg-1 col-sm-12 mx-2 py-4 text-center header__Nav__Link">
+          Panier
+        </a>
       </div>
     </header>
     <!-- Header -->
@@ -45,17 +41,15 @@
           <p class="col-5 mx-auto text-center pt-4" id="product__description"></p>
           <div class="row">
             <select class="col-9 mx-auto p-3 my-2" id="product__options" required>
-              <option class="" value="" disabled selected>Sélectionner une couleur</option>
+              <option disabled selected>Sélectionner une couleur</option>
             </select>
-            <button id="product__button" class="col-4 mx-auto my-2 p-2 btn btn-dark">
+            <button id="product__button" class="col-lg-4 col-sm-8 mx-auto mt-4 p-2 btn btn-dark">
               <span>Ajouter au panier</span>
-              <i id="product__icon" class="fas fa-shopping-bag"></i>
+              <i id="product__icon" class="mx-2 fas fa-shopping-cart"></i>
             </button>
-            <button class="col-4 mx-auto my-2 p-2 btn btn-dark">
-              <a href="cart.html">
-                <span>Voir le panier</span>
-              </a>
-            </button>
+            <a href="cart.html" class="col-lg-4 col-sm-8 mx-auto mt-4 p-2 text-center border btn btn-dark">
+              <span>Voir le panier</span>
+            </a>
           </div>
           <p id="product__confirm" class="pt-2 text-center"></p>
         </div>

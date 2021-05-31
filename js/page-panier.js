@@ -9,6 +9,7 @@ let address = document.getElementById("address");
 let city = document.getElementById("city");
 let email = document.getElementById("email");
 let formButton = document.getElementById("form__button");
+let check_CGV = document.getElementById("check_CGV");
 let invalidMessage = document.getElementById("invalid__message");
 invalidMessage.style.color = "red";
 
@@ -26,12 +27,14 @@ formButton.addEventListener("click", function(){
     // Verifiy form inputs values
     if (firstName.validity.valueMissing || lastName.validity.valueMissing || address.validity.valueMissing || city.validity.valueMissing || email.validity.valueMissing) {
         invalidMessage.textContent = "Tous les champs sont requis.";
+    } else if  (!check_CGV.checked) {
+        invalidMessage.textContent = "Vous devez accepter les conditions générales de ventes - CGV pour continuer.";
     } else if (specialCharactersValid(firstName.value) === false || specialCharactersValid(lastName.value) === false || specialCharactersValid(address.value) === false || specialCharactersValid(city.value) === false) {
         invalidMessage.textContent = "Les champs prénom/nom/adresse/ville ne doivent pas comporter de caractères spéciaux.";
     } else if (nameValid(firstName.value) === false || nameValid(lastName.Value) === false) {
         invalidMessage.textContent = "Les champs nom/prénom doivent être composés de lettres et ne doivent pas contenir de chiffres.";
     } else if (emailValid(email.value) === false) {
-        invalidMessage.innerHTML = "Le champ email doit être composé de cette manière <em>xxxxxxxx@xxxxx.xxx</em>";
+        invalidMessage.innerHTML = "Le champ email n'est pas correct";
     } else if (onlyWhitespacesInvalid(firstName.value) || onlyWhitespacesInvalid(lastName.value) || onlyWhitespacesInvalid(address.value) || onlyWhitespacesInvalid(city.value) || onlyWhitespacesInvalid(email.value)) {
         invalidMessage.textContent = "Les champs ne doivent pas contenir uniquement des espaces.";
     } else { // if all form inputs are valid, create contact object & products array, set them to API and get response
