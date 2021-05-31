@@ -9,26 +9,3 @@ let summary = document.getElementById("summary");
 
 confirmationText.innerHTML = `Merci <strong> ${orderFirstName} ${orderLastName} </strong>, votre commande n° <strong> ${orderId}
 </strong> d'un montant de <strong> ${(orderTotal / 100).toFixed(2)} € </strong> a bien été prise en compte.`
-
-for (let i in orderProducts) {
-    let orderProduct = document.createElement("div");
-    orderProduct.classList.add("summary__product", "text-center", "my-4", "pb-4");
-    summary.appendChild(orderProduct);
-    let orderProductImage = document.createElement("img");
-    orderProductImage.classList.add("summary__image", "border", "mb-3");
-    orderProduct.appendChild(orderProductImage);
-    let orderProductName = document.createElement("span");
-    orderProductName.classList.add("summary__name");
-    orderProduct.appendChild(orderProductName);
-    fetch("http://localhost:3000/api/teddies/" + orderProducts[i])
-    .then(response => response.json())
-    .then(response => {
-        orderProductImage.src = response["imageUrl"];
-        orderProductName.textContent = response["name"];
-    })
-    .catch(error => {
-        console.log(error);
-        alert("Erreur de serveur, tentative de reconnnexion...");
-        setTimeout(function(){document.location.reload()}, 1000);
-    });
-}
