@@ -4,10 +4,8 @@ let cardsList = document.getElementById("cards__list");
 
 async function teddiesFetch() {
   const response = await fetch("http://localhost:3000/api/teddies/");
-  const teddies = response.json;
+  const teddies = await response.json();
   for (let product of teddies) {
-    // TypeError: teddies is not iterable at teddiesFetch (index.js:8)
-
     // Pour tout les oursons contenue dans le JSON
     let newDiv = document.createElement("div");
     newDiv.classList.add("card", "col-lg-5", "col-sm-9", "mx-auto", "my-4");
