@@ -15,7 +15,7 @@ let addToCartButton = document.getElementById("product__button");
 let productConfirm = document.getElementById("product__confirm");
 
 
-fetch("http://localhost:3000/api/teddies/" + productId) // GET camera according to the id
+fetch("http://localhost:3000/api/teddies/" + productId) // GET teddy according to the id
 .then(response => response.json()) // response in JSON format convert to an object and return a promise
 .then(response => {
     // give imageUrl to img src
@@ -45,11 +45,11 @@ fetch("http://localhost:3000/api/teddies/" + productId) // GET camera according 
 });
 
 addToCartButton.addEventListener("click", function() {
-    // take the value of selected lense and create an id according to the selected lens
+    // take the value of selected color and create an id according to the selected lens
     let productOptionSelected = selectDiv.options[selectDiv.selectedIndex].value; 
     let customProductId = productId + "-" + productOptionSelected;
-    // if a lense is not selected, prevent the product from being added to the cart
-    if (productOptionSelected === "") {
+    // if a color is not selected, prevent the product from being added to the cart
+    if (productOptionSelected === "Sélectionner une couleur") {
         productConfirm.style.opacity = "1";
         productConfirm.textContent = "Veuillez choisir une couleur.";
         productConfirm.style.color = "red";
