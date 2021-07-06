@@ -14,12 +14,11 @@ let selectDiv = document.getElementById("product__options");
 let addToCartButton = document.getElementById("product__button");
 let productConfirm = document.getElementById("product__confirm");
 
-
 fetch("http://localhost:3000/api/teddies/" + productId) // GET teddy according to the id
-.then(response => response.json()) // response in JSON format convert to an object and return a promise
-.then(response => {
+  .then((response) => response.json()) // response in JSON format convert to an object and return a promise
+  .then((response) => {
     // give imageUrl to img src
-    productImageUrl = response["imageUrl"]
+    productImageUrl = response["imageUrl"];
     imageDiv.src = productImageUrl;
     // display product name
     productName = response["name"];
@@ -31,52 +30,68 @@ fetch("http://localhost:3000/api/teddies/" + productId) // GET teddy according t
     priceDiv.textContent = convertToFloatNumber(productPrice) + "€";
     // create array of colors and create option from this array
     let arrayColors = response["colors"];
-    for(let i in arrayColors) {
-        let newOption = document.createElement("option");
-        newOption.setAttribute("value", arrayColors[i])
-        newOption.text = arrayColors[i];
-        selectDiv.add(newOption);
+    for (let i in arrayColors) {
+      let newOption = document.createElement("option");
+      newOption.setAttribute("value", arrayColors[i]);
+      newOption.text = arrayColors[i];
+      selectDiv.add(newOption);
     }
-})
-.catch(error => {
+  })
+  .catch((error) => {
     console.log(error);
     alert("Erreur de serveur, tentative de reconnnexion...");
-    setTimeout(function(){document.location.reload()}, 1000);
-});
+    setTimeout(function () {
+      document.location.reload();
+    }, 1000);
+  });
 
-addToCartButton.addEventListener("click", function() {
-    // take the value of selected color and create an id according to the selected lens
-    let productOptionSelected = selectDiv.options[selectDiv.selectedIndex].value; 
-    let customProductId = productId + "-" + productOptionSelected;
-    // if a color is not selected, prevent the product from being added to the cart
-    if (productOptionSelected === "Sélectionner une couleur") {
-        productConfirm.style.opacity = "1";
-        productConfirm.textContent = "Veuillez choisir une couleur.";
-        productConfirm.style.color = "red";
-        setTimeout(function(){productConfirm.style.opacity = "0"}, 1000);
-    } 
-    // if the product is not yet in the cart, create product, add quantity 1, add it in the cart and display confirm message
-    else if (localStorage.getItem(customProductId) === null) {
-        let productQuantity = 1;
-        let productAdded = new Product(productId, productImageUrl, productName, productPrice, productOptionSelected, productQuantity);
-        let productAddedJson = JSON.stringify(productAdded); // convert to JSON format to be added in cart
-        localStorage.setItem(customProductId, productAddedJson);
-        productConfirm.style.opacity = "1";
-        productConfirm.textContent = "Produit ajouté au panier.";
-        productConfirm.style.color = "#4e00df";
-        setTimeout(function(){productConfirm.style.opacity = "0"}, 1000);
-    }
-    // if the product is already in the cart, get the product, increment its price,
-    // add the update product in the cart and display confirm message 
-    else if (localStorage.key(customProductId) !== null){
-        let productToUpdate = JSON.parse(localStorage.getItem(customProductId));
-        let quantityUpdate = productToUpdate["quantity"];
-        quantityUpdate++;
-        productToUpdate["quantity"] = quantityUpdate;
-        let productToUpdateJSon = JSON.stringify(productToUpdate);
-        localStorage.setItem(customProductId, productToUpdateJSon);
-        productConfirm.style.opacity = "1";
-        productConfirm.textContent = "Produit ajouté au panier.";
-        productConfirm.style.color = "#4e00df";
-        setTimeout(function(){productConfirm.style.opacity = "0"}, 1000);
-}});
+addToCartButton.addEventListener("click", function () {
+  // take the value of selected color and create an id according to the selected lens
+  let productOptionSelected = selectDiv.options[selectDiv.selectedIndex].value;
+  let customProductId = productId + "-" + productOptionSelected;
+  // if a color is not selected, prevent the product from being added to the cart
+  if (productOptionSelected === "Sélectionner une couleur") {
+    productConfirm.style.opacity = "1";
+    productConfirm.textContent = "Veuillez choisir une couleur.";
+    productConfirm.style.color = "red";
+    setTimeout(function () {
+      productConfirm.style.opacity = "0";
+    }, 1000);
+  }
+  // if the product is not yet in the cart, create product, add quantity 1, add it in the cart and display confirm message
+  else if (localStorage.getItem(customProductId) === null) {
+    let productQuantity = 1;
+    let productAdded = new Product(
+      productId,
+      productImageUrl,
+      productName,
+      productPrice,
+      productOptionSelected,
+      productQuantity
+    );
+    let productAddedJson = JSON.stringify(productAdded); // convert to JSON format to be added in cart
+    localStorage.setItem(customProductId, productAddedJson);
+    productConfirm.style.opacity = "1";
+    productConfirm.textContent = "Produit ajouté au panier.";
+    productConfirm.style.color = "#4e00df";
+    setTimeout(function () {
+      productConfirm.style.opacity = "0";
+    }, 1000);
+  }
+  // if the product is already in the cart, get the product, increment its price,
+  // add the update product in the cart and display confirm message
+  else if (localStorage.key(customProductId) !== null) {
+    let productToUpdate = JSON.parse(localStorage.getItem(customProductId));
+    let quantityUpdate = productToUpdate["quantity"];
+    quantityUpdate++;
+    productToUpdate["quantity"] = quantityUpdate;
+    let productToUpdateJSon = JSON.stringify(productToUpdate);
+    localStorage.setItem(customProductId, productToUpdateJSon);
+    productConfirm.style.opacity = "1";
+    productConfirm.textContent = "Produit ajouté au panier.";
+    productConfirm.style.color = "#4e00df";
+    setTimeout(function () {
+      productConfirm.style.opacity = "0";
+    }, 1000);
+  }
+});
