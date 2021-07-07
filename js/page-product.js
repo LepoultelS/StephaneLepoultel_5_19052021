@@ -14,7 +14,8 @@ let selectDiv = document.getElementById("product__options");
 let addToCartButton = document.getElementById("product__button");
 let productConfirm = document.getElementById("product__confirm");
 
-fetch("http://localhost:3000/api/teddies/" + productId) // GET teddy according to the id
+fetch(`http://localhost:3000/api/teddies/${productId}`)
+// GET teddy according to the id
   .then((response) => response.json()) // response in JSON format convert to an object and return a promise
   .then((response) => {
     // give imageUrl to img src
