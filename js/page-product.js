@@ -14,7 +14,8 @@ let selectDiv = document.getElementById("product__options");
 let addToCartButton = document.getElementById("product__button");
 let productConfirm = document.getElementById("product__confirm");
 
-fetch("http://localhost:3000/api/teddies/" + productId) // GET camera according to the id
+fetch(`http://localhost:3000/api/teddies/${productId}`)
+// GET teddy according to the id
   .then((response) => response.json()) // response in JSON format convert to an object and return a promise
   .then((response) => {
     // give imageUrl to img src
@@ -56,7 +57,7 @@ addToCartButton.addEventListener("click", function () {
     productConfirm.style.color = "red";
     setTimeout(function () {
       productConfirm.style.opacity = "0";
-    }, 3000);
+      }, 3000);
   }
   // if the product is not yet in the cart, create product, add quantity 1, add it in the cart and display confirm message
   else if (localStorage.getItem(customProductId) === null) {
@@ -76,7 +77,7 @@ addToCartButton.addEventListener("click", function () {
     productConfirm.style.color = "#4e00df";
     setTimeout(function () {
       productConfirm.style.opacity = "0";
-    }, 3000);
+      }, 3000);
   }
   // if the product is already in the cart, get the product, increment its price,
   // add the update product in the cart and display confirm message
@@ -92,6 +93,6 @@ addToCartButton.addEventListener("click", function () {
     productConfirm.style.color = "#4e00df";
     setTimeout(function () {
       productConfirm.style.opacity = "0";
-    }, 3000);
+      }, 3000);
   }
 });

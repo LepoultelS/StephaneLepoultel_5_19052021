@@ -11,7 +11,7 @@ let newImage;
 let newImageLink;
 let newInfos;
 let newName;
-let newcolor;
+let newColor;
 let newPrice;
 let newCustomOptions;
 let newQuantity;
@@ -59,10 +59,10 @@ function createCartProduct() {
   newName = document.createElement("span");
   newName.classList.add("productInCart__infos__name", "row", "my-2", "px-3");
   newInfos.appendChild(newName);
-  // newcolor in newInfos
-  newcolor = document.createElement("span");
-  newcolor.classList.add("productInCart__infos__color");
-  newInfos.appendChild(newcolor);
+  // newColor in newInfos
+  newColor = document.createElement("span");
+  newColor.classList.add("productInCart__infos__color");
+  newInfos.appendChild(newColor);
   // newPrice in newInfos
   newPrice = document.createElement("span");
   newPrice.classList.add("productInCart__infos__price", "fw-bold", "px-3");
@@ -105,7 +105,7 @@ function displayCartProducts() {
     );
     newImage.src = productInCartObject["imageUrl"];
     newName.textContent = productInCartObject["name"];
-    newcolor.textContent = "Couleur : " + productInCartObject["color"];
+    newColor.textContent = "Couleur : " + productInCartObject["color"];
     let productPrice = productInCartObject["price"];
     newPrice.textContent = convertToFloatNumber(productPrice) + "€";
     let productQuantity = productInCartObject["quantity"];

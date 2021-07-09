@@ -79,7 +79,7 @@ formButton.addEventListener("click", function () {
       city.value,
       email.value
     ); // create contact object
-    let products = []; // create products array and push each id of camera contained in the localStorage
+    let products = []; // create products array and push each id of teddy contained in the localStorage
     for (let i = 0; i < localStorage.length; i++) {
       let id = JSON.parse(localStorage.getItem(localStorage.key(i)))["id"];
       products.push(id);
