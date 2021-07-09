@@ -47,7 +47,7 @@ fetch(`http://localhost:3000/api/teddies/${productId}`)
   });
 
 addToCartButton.addEventListener("click", function () {
-  // take the value of selected color and create an id according to the selected lens
+  // take the value of selected color and create an id according to the selected color
   let productOptionSelected = selectDiv.options[selectDiv.selectedIndex].value;
   let customProductId = productId + "-" + productOptionSelected;
   // if a color is not selected, prevent the product from being added to the cart
@@ -57,7 +57,7 @@ addToCartButton.addEventListener("click", function () {
     productConfirm.style.color = "red";
     setTimeout(function () {
       productConfirm.style.opacity = "0";
-    }, 1000);
+      }, 3000);
   }
   // if the product is not yet in the cart, create product, add quantity 1, add it in the cart and display confirm message
   else if (localStorage.getItem(customProductId) === null) {
@@ -77,7 +77,7 @@ addToCartButton.addEventListener("click", function () {
     productConfirm.style.color = "#4e00df";
     setTimeout(function () {
       productConfirm.style.opacity = "0";
-    }, 1000);
+      }, 3000);
   }
   // if the product is already in the cart, get the product, increment its price,
   // add the update product in the cart and display confirm message
@@ -93,6 +93,6 @@ addToCartButton.addEventListener("click", function () {
     productConfirm.style.color = "#4e00df";
     setTimeout(function () {
       productConfirm.style.opacity = "0";
-    }, 1000);
+      }, 3000);
   }
 });
